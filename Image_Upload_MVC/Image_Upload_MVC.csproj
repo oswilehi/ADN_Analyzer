@@ -115,6 +115,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Email.cshtml" />
+    <None Include="Properties\PublishProfiles\adnanalyzer-grupo4 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

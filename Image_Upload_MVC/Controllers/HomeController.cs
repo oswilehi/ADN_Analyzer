@@ -19,7 +19,7 @@ namespace Image_Upload_MVC.Controllers
     public class HomeController : Controller
     {
 
-        IFaceClient client = new FaceClient(new ApiKeyServiceClientCredentials(Environment.GetEnvironmentVariable("FACE_SUBSCRIPTION_KEY"))) { Endpoint = Environment.GetEnvironmentVariable("FACE_ENDPOINT") };
+        IFaceClient client = new FaceClient(new ApiKeyServiceClientCredentials("83f082ff92f64df9adf46ccf3febcdc0")) { Endpoint = "https://proyectos.cognitiveservices.azure.com/face/v1.0/detect" };
         string message;
         
 
@@ -138,7 +138,7 @@ namespace Image_Upload_MVC.Controllers
 
             // Request headers.
             client.DefaultRequestHeaders.Add(
-                "Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("FACE_SUBSCRIPTION_KEY"));
+                "Ocp-Apim-Subscription-Key", "83f082ff92f64df9adf46ccf3febcdc0");
 
             // Request parameters. A third optional parameter is "details".
             string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
@@ -146,7 +146,7 @@ namespace Image_Upload_MVC.Controllers
                 "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 
             // Assemble the URI for the REST API Call.
-            string uri = Environment.GetEnvironmentVariable("FACE_ENDPOINT") + "?" + requestParameters;
+            string uri = "https://proyectos.cognitiveservices.azure.com/face/v1.0/detect" + "?" + requestParameters;
 
             HttpResponseMessage response;
 
@@ -186,10 +186,10 @@ namespace Image_Upload_MVC.Controllers
 
             // Request headers.
             client.DefaultRequestHeaders.Add(
-                "Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("FACE_SUBSCRIPTION_KEY"));
+                "Ocp-Apim-Subscription-Key", "83f082ff92f64df9adf46ccf3febcdc0");
 
             // Assemble the URI for the REST API Call.
-            string uri = Environment.GetEnvironmentVariable("FACE_ENDPOINT2");
+            string uri = "https://proyectos.cognitiveservices.azure.com/face/v1.0/verify";
 
             string body = "{\"faceId1\": " + "\"" + faceID1 + "\" ," + "\"faceId2\": " + "\"" + faceID2 + "\"}";
 
