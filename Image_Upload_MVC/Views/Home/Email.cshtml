@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Email</title>
+</head>
+<body>
+    <div>
+        <h1>
+            Your email has been sent successfully
+        </h1>
+        @using (Html.BeginForm("GotoIndex", "Home"))
+        {
+        <input type="submit" value="Go to analyzer" />
+        }
+    </div>
+</body>
+</html>

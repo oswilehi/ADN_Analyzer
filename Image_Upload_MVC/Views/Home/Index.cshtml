@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        img {
+            height: 150px;
+            width: 150px;
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <span>Select File:</span>
+        <input type="file" multiple name="postedFile" />
+        <hr />
+        <input type="submit" value="Upload" />
+        <br />
+
+        <br />
+        if (ViewBag.FirstImage != null && ViewBag.SecondImage != null)
+        {
+
+            <img alt="Uploaded Image" src="@ViewBag.FirstImage" />
+            <img alt="Uploaded Image" src="@ViewBag.SecondImage" />
+
+        }
+        else
+        {
+            <div class="container">
+                <img id="loading" src="/Images/dna_loading.gif" alt="Updating ..." />
+            </div>
+            <br />
+            <label> Debe seleccionar dos fotos </label>
+            <br />
+        }
+    }
+    <br />
+    @if (ViewBag.Kinship != null)
+    {
+        using (Html.BeginForm("SendEmail", "Home"))
+        {
+            <label> Resultado: </label>
+            <textarea readonly="readonly" cols="65" rows="1"   style="resize:none;" name="content"> @ViewBag.Kinship </textarea>
+
+            <br />
+            <label> Correo: </label>
+            <br />
+            <input type="email" name="email" />
+            <br />
+            <input type="submit" value="Send email" />
+        }
+
+    }
+
+
+
+
+</body>
+</html>
